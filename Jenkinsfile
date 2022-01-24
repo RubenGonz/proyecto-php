@@ -1,10 +1,10 @@
 pipeline {
-    agent { docker { image 'php:7.4-cli' } }
+    agent any
     stages {
         stage('build') {
             steps {
                 sh 'docker build -t proyecto-php .'
-                sh 'docker run -p 8081:80 proyecto-php'
+                sh 'docker run -p 8085:8085 proyecto-php'
             }
         }
     }
