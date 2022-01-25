@@ -9,7 +9,7 @@ pipeline {
         }
         stage('Test'){
             steps{
-                sh 'wget http://localhost:8085/'
+                sh 'wget http://jenkins.rubengr.com:8085/'
             }
         }
     }
