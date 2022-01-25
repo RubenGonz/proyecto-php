@@ -4,7 +4,7 @@ pipeline {
         stage('construccion') {
             steps {
                 sh 'docker build -t proyecto-php .'
-                sh 'docker run -d --rm -p 8085:80 proyecto-php'
+                sh 'docker run -d --rm -p 8085:80 --name ContenedorPrueba proyecto-php'
             }
         }
         stage('testeo'){
@@ -12,9 +12,9 @@ pipeline {
                 sh 'wget http://localhost:8085/'
             }
         }
-        stage('borarContenedores') {  
+        stage('borarContenedor') {  
             steps {
-                sh 'docker stop $(docker ps -a -q)'  
+                sh 'docker stop  ContenedorPrueba'  
             }
         }
     }
