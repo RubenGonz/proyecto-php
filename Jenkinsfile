@@ -12,10 +12,13 @@ pipeline {
                 sh 'wget http://localhost:8085/'
             }
         }
-        stage('borarContenedor') {  
-            steps {
-                sh 'docker stop  ContenedorPrueba'  
-            }
-        }
+//
+//      En el caso de querer borrar el contenedor tras testearlo pondremos:
+//
+//        stage('borarContenedor') {  
+//            steps {
+//                sh 'docker stop  ContenedorPrueba'  
+//            }
+//        }
     }
 }
