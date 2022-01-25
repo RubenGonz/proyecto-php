@@ -12,5 +12,10 @@ pipeline {
                 sh 'wget http://localhost:8085/'
             }
         }
+        stage('PostBuild') {  
+            steps {
+                sh 'docker stop $(docker ps -a -q)'  
+            }
+        }
     }
 }
