@@ -4,6 +4,7 @@ pipeline {
         stage('build') {
             steps {
                 sh 'docker build -t proyecto-php .'
+                sh 'echo "ServerName localhost"'
                 sh 'docker run -p 8085:8085 proyecto-php'
             }
         }
