@@ -1,18 +1,18 @@
 pipeline {
     agent any
     stages {
-        stage('build') {
+        stage('construccion') {
             steps {
                 sh 'docker build -t proyecto-php .'
                 sh 'docker run -d --rm -p 8085:80 proyecto-php'
             }
         }
-        stage('Test'){
+        stage('testeo'){
             steps{
                 sh 'wget http://localhost:8085/'
             }
         }
-        stage('PostBuild') {  
+        stage('borarContenedores') {  
             steps {
                 sh 'docker stop $(docker ps -a -q)'  
             }
